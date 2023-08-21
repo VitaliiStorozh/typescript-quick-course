@@ -1,6 +1,6 @@
-class Server {
-  private port: number;
-  private address: string;
+abstract class BaseServer {
+  protected port: number;
+  protected address: string;
 
   constructor(port: number, address: string) {
     this.port = port;
@@ -10,9 +10,22 @@ class Server {
   startServer() {
     console.log(`Server started at ${this.address}:${this.port}`);
   }
+
+  abstract stopServer(): void;
 }
 
-const someServer = new Server(8080, 'localhost');
+class DbServer extends BaseServer {
+  stopServer(): void {
+    console.log('Stopping db server');
+  }
+
+  constructor(port: number, address: string) {
+    super(port, address);
+    console.log('Calling db server constructor');
+  }
+}
+
+const someServer = new DbServer(8080, 'localhost');
 someServer.startServer();
 const somePort = (someServer as any).port;
 console.log(somePort);
