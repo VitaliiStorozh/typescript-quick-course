@@ -1,4 +1,6 @@
-interface IServer {
+import { Comp1 } from '@components/Comp1';
+
+export interface IServer {
   startServer(): void;
   stopServer(): void;
 }
@@ -6,6 +8,7 @@ interface IServer {
 class Server implements IServer {
   protected port: number;
   protected address: string;
+  public comp1 = new Comp1();
 
   constructor(port: number, address: string) {
     this.port = port;
@@ -20,7 +23,7 @@ class Server implements IServer {
   stopServer(): void {}
 
   async getData(): Promise<string> {
-    return 'some data'
+    return 'some data';
   }
 }
 

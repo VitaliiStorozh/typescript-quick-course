@@ -1,3 +1,5 @@
+import { IServer } from './Server';
+
 interface Persons {
   firstName: string;
   lastName: string;
