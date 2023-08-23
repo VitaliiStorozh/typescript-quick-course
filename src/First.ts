@@ -17,6 +17,11 @@ function generateEmail(input: Persons, force?: boolean): string | undefined {
   }
 }
 
+const abs: string | undefined = generateEmail({} as any);
+
+function toUpperCase(arg: string) {}
+toUpperCase(abs!);
+
 function isPerson(potentialPerson: any): boolean {
   if ('firstName' in potentialPerson && 'lastName' in potentialPerson) {
     return true;

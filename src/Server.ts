@@ -9,6 +9,7 @@ class Server implements IServer {
   protected port: number;
   protected address: string;
   public comp1 = new Comp1();
+  public date: string = '';
 
   constructor(port: number, address: string) {
     this.port = port;
@@ -18,6 +19,9 @@ class Server implements IServer {
   async startServer() {
     const data = await this.getData();
     console.log(`Server started at ${this.address}:${this.port}`);
+    return function () {
+      // this.date = 5;
+    };
   }
 
   stopServer(): void {}
